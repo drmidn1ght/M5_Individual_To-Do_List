@@ -1,10 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+/* Arquivo principal do projeto */ 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import styled from "styled-components";
+
+import Header from "./components/Header";
+import ListaTarefas from "./components/ListaTarefas";
+import ListaItem from "./components/ListaItem";
+
+import Footer from "./components/Footer";
+function App() {
+  return (
+    <BrowserRouter>
+      <Header />
+      <ListaTarefas />
+          <ListaItem />
+              <Footer />
+    </BrowserRouter>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
