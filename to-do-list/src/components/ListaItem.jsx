@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./components/Button"; 
 
 const ListaItem = ({ tarefa, index, adicionarTarefa, editarTarefa, excluirTarefa }) => {
   return (

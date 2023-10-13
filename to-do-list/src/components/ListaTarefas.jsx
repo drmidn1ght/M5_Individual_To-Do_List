@@ -1,52 +1,27 @@
-import React, { useState } from "react";
-import ListaItem from "./components/ListaItem";
-import GlobalStyle from "./style/GlobalStyle";
+import React from "react";
+import Button from "./components/Button";
 
-const ListaTarefas = () => {
-  const [tarefas, setTarefas] = useState([]);
-
-  const adicionarTarefa = (tarefa) => {
-    setTarefas([...tarefas, tarefa]);
-  };
-
-  const editarTarefa = (index, tarefa) => {
-    setTarefas((tarefas) => {
-      tarefas[index] = tarefa;
-      return tarefas;
-    });
-  };
-
-  const excluirTarefa = (index) => {
-    setTarefas((tarefas) => {
-      tarefas.splice(index, 1);
-      return tarefas;
-    });
-  };
-
+const ListaItem = ({ tarefa, index, adicionarTarefa, editarTarefa, excluirTarefa }) => {
   return (
-    <div className="lista-tarefas">
-      <h2
-        aria-label="Confira sua lista:"
-        aria-hidden="false"
-        role="heading"
-      >
-        Lista de tarefas
-      </h2>
-
-      <ul>
-        {tarefas.map((tarefa, index) => (
-          <ListaItem
-            key={tarefa.id}
-            tarefa={tarefa}
-            index={index}
-            adicionarTarefa={adicionarTarefa}
-            editarTarefa={editarTarefa}
-            excluirTarefa={excluirTarefa}
-          />
-        ))}
-      </ul>
-    </div>
+    <li key={tarefa.id}>
+      <div className="lista-item-titulo">
+        {tarefa.titulo}
+      </div>
+      <div className="lista-item-descricao">
+        {tarefa.descricao}
+      </div>
+      <div className="lista-item-acao">
+        <Button
+          onClick={() => editarTarefa(index)}
+          text="Editar"
+        />
+        <Button
+          onClick={() => excluirTarefa(index)}
+          text="Excluir"
+        />
+      </div>
+    </li>
   );
 };
 
-export default ListaTarefas;
+export default ListaItem;
