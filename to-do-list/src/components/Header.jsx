@@ -15,6 +15,6 @@ export const Header = () => {
 };
 
 /* Cabeçalho otimizado para leitores de tela. 
-    - area-label: cria um texto alternativo;
-        - area-hidden: Oculta algum componente de leitores de tela, por exemplo, efeitos visuais. Neste caso, está definido como false;
+    - aria-label: cria um texto alternativo;
+        - aria-hidden: Oculta algum componente de leitores de tela, por exemplo, efeitos visuais. Neste caso, está definido como false;
             - role: Define o papel do componente. */
