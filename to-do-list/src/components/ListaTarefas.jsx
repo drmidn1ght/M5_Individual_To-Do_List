@@ -1,31 +1,23 @@
+import React, { useState } from "react";
+import ListaItem from "./components/ListaItem";
 
-import React from "react";
+class ListaTarefas extends Component {
+  state = {
+    tarefas: [],
+  };
 
-import ListaItem from "./components/ListaItem.jsx";
-
-import Button from "./components/Button";
-
-const ListaItem = ({ tarefa, index, adicionarTarefa, editarTarefa, excluirTarefa }) => {
-  return (
-    <li key={tarefa.id}>
-      <div className="lista-item-titulo">
-        {tarefa.titulo}
+  render() {
+    return (
+      <div>
+        <h1>Lista de tarefas</h1>
+        <ul>
+          {this.state.tarefas.map((tarefa, index) => (
+            <ListaItem key={index} tarefa={tarefa} />
+          ))}
+        </ul>
       </div>
-      <div className="lista-item-descricao">
-        {tarefa.descricao}
-      </div>
-      <div className="lista-item-acao">
-        <Button
-          onClick={() => editarTarefa(index)}
-          text="Editar"
-        />
-        <Button
-          onClick={() => excluirTarefa(index)}
-          text="Excluir"
-        />
-      </div>
-    </li>
-  );
-};
+    );
+  }
+}
 
 export default ListaTarefas;

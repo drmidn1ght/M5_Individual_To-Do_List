@@ -1,29 +1,42 @@
+import React, { useState } from "react";
+import Button from "./components/Button";
 
-import React from "react";
+class ListaItem extends Component {
+  state = {
+    tarefa: "",
+    novaTarefa: "",
+  };
 
-import Button from "./components/Button"; 
+  handleEditar = () => {
+    this.setState({
+      novaTarefa: this.state.tarefa,
+    });
+  };
 
-const ListaItem = ({ tarefa, index, adicionarTarefa, editarTarefa, excluirTarefa }) => {
-  return (
-    <li key={tarefa.id}>
-      <div className="lista-item-titulo">
-        {tarefa.titulo}
-      </div>
-      <div className="lista-item-descricao">
-        {tarefa.descricao}
-      </div>
-      <div className="lista-item-acao">
-        <Button
-          onClick={() => editarTarefa(index)}
-          text="Editar"
+  handleExcluir = () => {
+    this.props.removerTarefa(this.state.tarefa);
+  };
+
+  handleAdicionar = () => {
+    this.props.salvarTarefa(this.state.novaTarefa);
+  };
+
+  render() {
+    const { tarefa } = this.state;
+
+    return (
+      <div>
+        <input
+          type="text"
+          value={tarefa}
+          onChange={e => this.setState({ tarefa: e.target.value })}
         />
-        <Button
-          onClick={() => excluirTarefa(index)}
-          text="Excluir"
-        />
+        <button onClick={this.handleEditar}>Editar</button>
+        <button onClick={this.handleExcluir}>Excluir</button>
+        <button onClick={this.handleAdicionar}>Adicionar</button>
       </div>
-    </li>
-  );
-};
+    );
+  }
+}
 
 export default ListaItem;

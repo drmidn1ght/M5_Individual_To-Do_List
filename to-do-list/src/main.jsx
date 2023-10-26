@@ -2,24 +2,13 @@
 
 
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import styled from "styled-components";
+import ReactDOM from "react-dom/client";
+import LandingPage from "../pages/LandingPage"
 
-import Header from "./components/Header.jsx";
-import ListaTarefas from "./components/ListaTarefas.jsx";
-import ListaItem from "./components/ListaItem.jsx";
 
-import Footer from "./components/Footer.jsx";
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <ListaTarefas />
-          <ListaItem />
-              <Footer />
-    </BrowserRouter>
-  );
-}
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <LandingPage/>
 
-ReactDOM.render(<App />, document.getElementById("root"));
+    </React.StrictMode>
+    )
