@@ -28,4 +28,4 @@ const ListaItem = ({ tarefa, index, adicionarTarefa, editarTarefa, excluirTarefa
   );
 };
 
-export default ListaItem;
+export default ListaTarefas;
